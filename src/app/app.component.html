@@ -1,0 +1,31 @@
+<div class="container">
+  <app-header>
+    <div>
+      <h1 class="header-rate">{{1  | currency}} — ₴{{headerUsd | number : '1.2-2'}}</h1>
+      <h1 class="header-rate">{{1 | currency : 'EUR'}} — ₴{{headerEur | number : '1.2-2'}}</h1>
+    </div>
+  </app-header>
+
+  <form class="form" #firstCurrencyForm="ngForm" (change)="onChangeFirstForm(firstCurrencyForm)">
+    <div class="form-group">
+      <input class="form__input" type="number" (keypress)="doValidate($event)" name="amount" [(ngModel)]="firstForm.amount" placeholder="enter amount">
+      <select name="currency" id="first-currency" [(ngModel)]="firstForm.currency">
+        <ng-container *ngFor="let currency of currencies | keyvalue">
+          <option *ngIf="currency.value !== lastForm.currency" [value]="currency.value">{{currency.key}}</option>
+        </ng-container>
+      </select>
+    </div>
+  </form>
+
+  <form class="form" #lastCurrencyForm="ngForm" (change)="onChangeLastForm(lastCurrencyForm)">
+    <div class="form-group">
+      <input class="form__input" type="number" (keypress)="doValidate($event)" name="amount" [(ngModel)]="lastForm.amount" placeholder="enter amount">
+      <select name="currency" id="last-currency" [(ngModel)]="lastForm.currency">
+        <ng-container *ngFor="let currency of currencies | keyvalue">
+          <option *ngIf="currency.value !== firstForm.currency" [value]="currency.value">{{currency.key}}</option>
+        </ng-container>
+      </select>
+    </div>
+  </form>
+
+</div>

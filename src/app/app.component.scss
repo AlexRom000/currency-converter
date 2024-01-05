@@ -1,0 +1,58 @@
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: aliceblue;
+
+  .header-rate {
+    font-size: 20px;
+  }
+
+  .form {
+    max-width: 60vw;
+    margin: 20px auto;
+
+    &:first-of-type {
+      margin-top: 180px;
+    }
+
+    &__input {
+      width: 45vw;
+      height: 40px;
+      margin-right: 16px;
+    }
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    font-size: 22px;
+    color: indigo;
+    font-weight: bold;
+    background-color: gainsboro;
+    padding: 0 20px;
+  }
+
+  input[type="number"] {
+    &:active, &:focus {
+      box-shadow: 2px 2px 12px #719ECE;
+    }
+  }
+
+  select {
+    height: 40px;
+    width: 7vw;
+    font-size: 20px;
+    background-color: gainsboro;
+  }
+
+  option {
+    margin: 5px 10px;
+  }
+}
